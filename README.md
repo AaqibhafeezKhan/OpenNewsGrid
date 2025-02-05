@@ -5,4 +5,4 @@ Link for compiling online
 https://www.tutorialspoint.com/online_css_editor.php
 
 
-Copy the changes from Index.html and paste in above link
+Working sample -  https://aaqibhafeezkhan.github.io/News-Grid-static/
