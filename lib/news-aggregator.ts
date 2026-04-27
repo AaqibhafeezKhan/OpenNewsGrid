@@ -5,6 +5,24 @@ import { CATEGORIES, COUNTRIES, NEWS_SOURCES, API_KEYS } from './constants';
 import { rssAggregator, ALL_RSS_FEEDS } from './rss-aggregator';
 import Parser from 'rss-parser';
 
+// Custom interface extending Parser.Item to include custom RSS fields
+interface CustomItem extends Parser.Item {
+  'content:encoded'?: string;
+  'media:content'?: any;
+  'media:thumbnail'?: any;
+  enclosure?: any;
+  content?: string;
+  summary?: string;
+  author?: string;
+  creator?: string;
+  'dc:creator'?: string;
+  'dc:date'?: string;
+  published?: string;
+  updated?: string;
+  category?: string;
+  categories?: string[];
+}
+
 const rssParser = new Parser({
   timeout: 10000,
   headers: {
@@ -341,7 +359,7 @@ class NewsAggregator {
     };
   }
 
-  private transformRSSItem(item: Parser.Item, source: NewsSource, idx: number, key: string): NewsArticle | null {
+  private transformRSSItem(item: CustomItem, source: NewsSource, idx: number, key: string): NewsArticle | null {
     if (!item.title) return null;
 
     return {
@@ -368,7 +386,7 @@ class NewsAggregator {
     };
   }
 
-  private extractImageFromRSS(item: Parser.Item): string | null {
+  private extractImageFromRSS(item: CustomItem): string | null {
     // Try to extract image from various RSS formats
     const mediaContent = item['media:content'] as { $: { url: string } };
     if (mediaContent?.$?.url) return mediaContent.$.url;
