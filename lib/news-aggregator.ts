@@ -10,6 +10,24 @@ const rssParser = new Parser({
   headers: {
     'User-Agent': 'Mozilla/5.0 (compatible; GlobalNewsBot/1.0)',
   },
+  customFields: {
+    item: [
+      'media:content',
+      'media:thumbnail',
+      'enclosure',
+      'content:encoded',
+      'content',
+      'summary',
+      'author',
+      'creator',
+      'dc:creator',
+      'dc:date',
+      'published',
+      'updated',
+      'category',
+      'categories',
+    ],
+  },
 });
 
 // Cache TTL values (in milliseconds)
