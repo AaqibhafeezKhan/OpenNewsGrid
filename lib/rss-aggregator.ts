@@ -616,7 +616,7 @@ export class RSSAggregator {
         language: source.language,
         country: source.country,
       },
-      author: item.creator || item.author || source.name,
+      author: item.creator || (item as { author?: string }).author || source.name,
       publishedAt: publishedAt,
       category: source.category,
       language: source.language,
@@ -627,7 +627,7 @@ export class RSSAggregator {
 
   private extractImageFromRSS(item: Parser.Item): string | null {
     // Try media:content
-    const mediaContent = item['media:content'] as { $: { url: string }; url?: string };
+    const mediaContent = (item as { 'media:content'?: { $: { url: string }; url?: string } })['media:content'];
     if (mediaContent?.$?.url) return mediaContent.$.url;
     // Try media:thumbnail
     const mediaThumbnail = (item as any)['media:thumbnail'];
@@ -639,7 +639,7 @@ export class RSSAggregator {
     }
 
     // Extract from content
-    const content = item['content:encoded'] as string || item.content || '';
+    const content = (item as { 'content:encoded'?: string })['content:encoded'] || item.content || '';
     const imgMatch = content.match(/<img[^>]+src="([^"]+)"/);
     if (imgMatch) return imgMatch[1];
 
