@@ -34,3 +34,5 @@ jobs:
           lhci autorun
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          LHCI_MIN_SCORE_PERF: 50
+          LHCI_MIN_SCORE_ACC: 50
