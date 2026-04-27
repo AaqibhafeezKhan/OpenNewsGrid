@@ -629,9 +629,9 @@ export class RSSAggregator {
     // Try media:content
     const mediaContent = item['media:content'] as { $: { url: string }; url?: string };
     if (mediaContent?.$?.url) return mediaContent.$.url;
-    if (((item as Record<string, unknown>)['media:thumbnail'] as { $: { url: string } })?.$?.url) {
-      return ((item as Record<string, unknown>)['media:thumbnail'] as { $: { url: string } }).$.url;
-    }
+    // Try media:thumbnail
+    const mediaThumbnail = (item as any)['media:thumbnail'];
+    if (mediaThumbnail?.$?.url) return mediaThumbnail.$.url;
 
     // Try enclosure
     if (item.enclosure?.url && item.enclosure.type?.startsWith('image/')) {
