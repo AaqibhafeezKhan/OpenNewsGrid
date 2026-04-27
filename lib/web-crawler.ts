@@ -473,7 +473,7 @@ const NEWS_APIS = [
   {
     name: 'World News API',
     endpoint: 'https://api.worldnewsapi.com/search-news',
-    params: { language: 'eng', source-countries: 'us,gb,de,fr,jp,in,br,ca,au' },
+    params: { language: 'eng', 'source-countries': 'us,gb,de,fr,jp,in,br,ca,au' },
   },
 ];
 
