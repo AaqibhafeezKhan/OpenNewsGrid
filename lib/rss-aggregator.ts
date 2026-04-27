@@ -605,7 +605,7 @@ export class RSSAggregator {
       id: `rss-${source.id}-${idx}-${Date.now()}`,
       title: title,
       description: description.slice(0, 500),
-      content: item['content:encoded'] as string || item.content,
+      content: (item as { 'content:encoded'?: string })['content:encoded'] || item.content,
       url: item.link || source.url,
       imageUrl: imageUrl,
       source: {
