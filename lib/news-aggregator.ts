@@ -5,7 +5,6 @@ import { CATEGORIES, COUNTRIES, NEWS_SOURCES, API_KEYS } from './constants';
 import { rssAggregator, ALL_RSS_FEEDS } from './rss-aggregator';
 import Parser from 'rss-parser';
 
-// Custom interface extending Parser.Item to include custom RSS fields
 interface CustomItem extends Parser.Item {
   'content:encoded'?: string;
   'media:content'?: any;
@@ -48,16 +47,15 @@ const rssParser = new Parser({
   },
 });
 
-// Cache TTL values (in milliseconds)
 const CACHE_TTL = {
-  breaking: 60 * 1000,        // 1 minute
-  top: 5 * 60 * 1000,         // 5 minutes
-  general: 15 * 60 * 1000,    // 15 minutes
-  search: 10 * 60 * 1000,     // 10 minutes
+  breaking: 60 * 1000,
+  top: 5 * 60 * 1000,
+  general: 15 * 60 * 1000,
+  search: 10 * 60 * 1000,
 };
 
 class NewsAggregator {
-  private similarityThreshold = 0.6; // For deduplication
+  private similarityThreshold = 0.6;
 
   async fetchNewsAPI(filters: NewsFilters, page: number = 1, pageSize: number = 20): Promise<NewsArticle[]> {
     const cacheKey = generateCacheKey('newsapi', { ...filters, page, pageSize });
@@ -147,7 +145,6 @@ class NewsAggregator {
   }
 
   async fetchRSSFeeds(category?: string, limit: number = 100): Promise<NewsArticle[]> {
-    // Use the comprehensive RSS aggregator
     return rssAggregator.fetchAllFeeds(category, 5, 50);
   }
 
@@ -160,7 +157,6 @@ class NewsAggregator {
     const cached = globalCache.get<NewsArticle[]>(cacheKey);
     if (cached) return cached;
 
-    // Find feeds for this country
     const feeds = ALL_RSS_FEEDS.filter(f => f.source.country === countryCode);
     
     const allArticles: NewsArticle[] = [];
@@ -222,7 +218,6 @@ class NewsAggregator {
       sortBy: 'publishedAt',
     }, 1, limit * 2);
 
-    // Prioritize recent articles from major sources
     const breaking = articles
       .filter(a => {
         const hoursAgo = (Date.now() - new Date(a.publishedAt).getTime()) / (1000 * 60 * 60);
@@ -253,7 +248,6 @@ class NewsAggregator {
     const stories: Map<string, AggregatedStory> = new Map();
 
     articles.forEach(article => {
-      // Try to find a matching story
       let matchedStory: AggregatedStory | null = null;
 
       for (const story of stories.values()) {
@@ -269,7 +263,6 @@ class NewsAggregator {
       }
 
       if (matchedStory) {
-        // Add article to existing story
         matchedStory.relatedArticles.push(article);
         matchedStory.sources.push(article.source);
         if (!matchedStory.countries.includes(article.country)) {
@@ -279,7 +272,6 @@ class NewsAggregator {
           matchedStory.languages.push(article.language);
         }
       } else {
-        // Create new story
         const story: AggregatedStory = {
           id: generateId(),
           headline: article.title,
@@ -387,7 +379,6 @@ class NewsAggregator {
   }
 
   private extractImageFromRSS(item: CustomItem): string | null {
-    // Try to extract image from various RSS formats
     const mediaContent = item['media:content'] as { $: { url: string } };
     if (mediaContent?.$?.url) return mediaContent.$.url;
 
@@ -396,7 +387,6 @@ class NewsAggregator {
       return enclosure.url;
     }
 
-    // Extract from content
     const content = item['content:encoded'] as string || item.content || '';
     const imgMatch = content.match(/<img[^>]+src="([^"]+)"/);
     if (imgMatch) return imgMatch[1];
@@ -495,7 +485,6 @@ class NewsAggregator {
 
 export const newsAggregator = new NewsAggregator();
 
-// Helper functions for specific use cases
 export async function getBreakingNews(limit = 10) {
   return newsAggregator.getBreakingNews(limit);
 }
@@ -513,14 +502,12 @@ export async function getNewsByCategory(category: string, page = 1, limit = 20) 
 }
 
 export async function getNewsByRegion(regionId: string, page = 1, limit = 50) {
-  // Use comprehensive RSS feeds for the region
   const rssArticles = await newsAggregator.fetchRSSByRegion(regionId, limit);
   
   if (rssArticles.length >= limit) {
     return rssArticles;
   }
   
-  // Fallback to API if RSS doesn't have enough
   const apiArticles = await newsAggregator.fetchAllSources({}, page, limit - rssArticles.length);
   
   return [...rssArticles, ...apiArticles]
@@ -529,14 +516,12 @@ export async function getNewsByRegion(regionId: string, page = 1, limit = 50) {
 }
 
 export async function getNewsByCountry(countryCode: string, page = 1, limit = 30) {
-  // Use RSS feeds specific to this country
   const rssArticles = await newsAggregator.fetchRSSByCountry(countryCode, limit);
   
   if (rssArticles.length >= limit) {
     return rssArticles;
   }
   
-  // Fallback to API if needed
   const apiArticles = await newsAggregator.fetchAllSources({ country: countryCode }, page, limit - rssArticles.length);
   
   return [...rssArticles, ...apiArticles]

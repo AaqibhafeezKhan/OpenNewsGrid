@@ -180,7 +180,6 @@ export const LANGUAGES = [
   { code: 'no', name: 'Norwegian', nativeName: 'Norsk' },
 ];
 
-// News API Sources - diversified global coverage
 export const NEWS_SOURCES = {
   apis: {
     newsapi: {
@@ -202,7 +201,6 @@ export const NEWS_SOURCES = {
     },
   },
   rss: {
-    // Asia
     'asahi': { name: 'Asahi Shimbun', url: 'https://www.asahi.com/english/rss/', country: 'jp', language: 'en', category: 'general' },
     'kyodo': { name: 'Kyodo News', url: 'https://english.kyodonews.net/rss/news.xml', country: 'jp', language: 'en', category: 'general' },
     'the-hindu': { name: 'The Hindu', url: 'https://www.thehindu.com/news/?service=rss', country: 'in', language: 'en', category: 'general' },
@@ -218,8 +216,6 @@ export const NEWS_SOURCES = {
     'dawn': { name: 'Dawn', url: 'https://www.dawn.com/feeds/home', country: 'pk', language: 'en', category: 'general' },
     'daily-star': { name: 'Daily Star', url: 'https://www.thedailystar.net/rss.xml', country: 'bd', language: 'en', category: 'general' },
     'manila-bulletin': { name: 'Manila Bulletin', url: 'https://mb.com.ph/rss', country: 'ph', language: 'en', category: 'general' },
-    
-    // Europe
     'bbc': { name: 'BBC News', url: 'http://feeds.bbci.co.uk/news/rss.xml', country: 'gb', language: 'en', category: 'general' },
     'guardian': { name: 'The Guardian', url: 'https://www.theguardian.com/world/rss', country: 'gb', language: 'en', category: 'general' },
     'reuters': { name: 'Reuters', url: 'https://www.reutersagency.com/feed/?taxonomy=markets&post_type=reuters-best', country: 'gb', language: 'en', category: 'general' },
@@ -235,8 +231,6 @@ export const NEWS_SOURCES = {
     'swissinfo': { name: 'Swissinfo', url: 'https://www.swissinfo.ch/eng/rss', country: 'ch', language: 'en', category: 'general' },
     'dutchnews': { name: 'Dutch News', url: 'https://www.dutchnews.nl/feed/', country: 'nl', language: 'en', category: 'general' },
     'irish-times': { name: 'Irish Times', url: 'https://www.irishtimes.com/rss/news', country: 'ie', language: 'en', category: 'general' },
-    
-    // Middle East
     'al-jazeera': { name: 'Al Jazeera', url: 'https://www.aljazeera.com/xml/rss/all.xml', country: 'qa', language: 'en', category: 'general' },
     'jordan-times': { name: 'Jordan Times', url: 'https://www.jordantimes.com/rss', country: 'jo', language: 'en', category: 'general' },
     'daily-sabah': { name: 'Daily Sabah', url: 'https://www.dailysabah.com/rss', country: 'tr', language: 'en', category: 'general' },
@@ -247,8 +241,6 @@ export const NEWS_SOURCES = {
     'gulf-news': { name: 'Gulf News', url: 'https://gulfnews.com/rss', country: 'ae', language: 'en', category: 'general' },
     'khaleej-times': { name: 'Khaleej Times', url: 'https://www.khaleejtimes.com/feed', country: 'ae', language: 'en', category: 'general' },
     'arab-news': { name: 'Arab News', url: 'https://www.arabnews.com/rss.xml', country: 'sa', language: 'en', category: 'general' },
-    
-    // Africa
     'mail-guardian': { name: 'Mail & Guardian', url: 'https://mg.co.za/feed/', country: 'za', language: 'en', category: 'general' },
     'premium-times': { name: 'Premium Times', url: 'https://www.premiumtimesng.com/feed', country: 'ng', language: 'en', category: 'general' },
     'nation-kenya': { name: 'Daily Nation', url: 'https://nation.africa/kenya/rss', country: 'ke', language: 'en', category: 'general' },
@@ -256,8 +248,6 @@ export const NEWS_SOURCES = {
     'allafrica': { name: 'AllAfrica', url: 'https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf', country: 'za', language: 'en', category: 'general' },
     'egypt-independent': { name: 'Egypt Independent', url: 'https://www.egyptindependent.com/feed/', country: 'eg', language: 'en', category: 'general' },
     'ethiopian-reporter': { name: 'Ethiopian Reporter', url: 'https://www.ethiopianreporter.com/feed', country: 'et', language: 'en', category: 'general' },
-    
-    // Americas
     'nyt': { name: 'New York Times', url: 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml', country: 'us', language: 'en', category: 'general' },
     'washington-post': { name: 'Washington Post', url: 'https://www.washingtonpost.com/world/rss', country: 'us', language: 'en', category: 'general' },
     'cnn': { name: 'CNN', url: 'http://rss.cnn.com/rss/edition_world.rss', country: 'us', language: 'en', category: 'general' },
@@ -271,14 +261,10 @@ export const NEWS_SOURCES = {
     'lanacion': { name: 'La Nacion', url: 'https://www.lanacion.com.ar/rss/', country: 'ar', language: 'es', category: 'general' },
     'reforma': { name: 'Reforma', url: 'https://www.reforma.com/rss/', country: 'mx', language: 'es', category: 'general' },
     'el-universal-mx': { name: 'El Universal', url: 'https://www.eluniversal.com.mx/rss', country: 'mx', language: 'es', category: 'general' },
-    
-    // Oceania
     'abc-au': { name: 'ABC News Australia', url: 'https://www.abc.net.au/news/feed/2942460/rss.xml', country: 'au', language: 'en', category: 'general' },
     'sydney-morning-herald': { name: 'Sydney Morning Herald', url: 'https://www.smh.com.au/rss/feed.xml', country: 'au', language: 'en', category: 'general' },
     'nz-herald': { name: 'NZ Herald', url: 'https://www.nzherald.co.nz/arc/outboundfeeds/rss/section/1/', country: 'nz', language: 'en', category: 'general' },
     'stuff': { name: 'Stuff', url: 'https://www.stuff.co.nz/rss', country: 'nz', language: 'en', category: 'general' },
-    
-    // Tech/Business specific
     'techcrunch': { name: 'TechCrunch', url: 'https://techcrunch.com/feed/', country: 'us', language: 'en', category: 'technology' },
     'the-verge': { name: 'The Verge', url: 'https://www.theverge.com/rss/index.xml', country: 'us', language: 'en', category: 'technology' },
     'wired': { name: 'Wired', url: 'https://www.wired.com/feed/rss', country: 'us', language: 'en', category: 'technology' },
@@ -291,8 +277,6 @@ export const NEWS_SOURCES = {
     'forbes': { name: 'Forbes', url: 'https://www.forbes.com/real-time/feed/', country: 'us', language: 'en', category: 'business' },
     'business-insider': { name: 'Business Insider', url: 'https://www.businessinsider.com/rss', country: 'us', language: 'en', category: 'business' },
     'economist-es': { name: 'Economist en Español', url: 'https://economiaenespanol.economist.com/feed/', country: 'gb', language: 'es', category: 'business' },
-    
-    // Independent/Global
     'global-voices': { name: 'Global Voices', url: 'https://globalvoices.org/feed/', country: 'us', language: 'en', category: 'general' },
     'mongabay': { name: 'Mongabay', url: 'https://news.mongabay.com/feed/', country: 'us', language: 'en', category: 'environment' },
     'carbon-brief': { name: 'Carbon Brief', url: 'https://www.carbonbrief.org/feed/', country: 'gb', language: 'en', category: 'environment' },
@@ -300,7 +284,6 @@ export const NEWS_SOURCES = {
   },
 };
 
-// API Keys (should be in env vars in production)
 export const API_KEYS = {
   NEWSAPI: process.env.NEWSAPI_KEY || 'demo',
   GNEWS: process.env.GNEWS_KEY || 'demo',

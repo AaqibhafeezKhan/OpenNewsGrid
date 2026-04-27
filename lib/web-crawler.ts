@@ -2,7 +2,6 @@ import { NewsArticle, NewsSource } from '@/types';
 import { extractKeywords, estimateReadTime, generateId, getFlagEmoji } from './utils';
 import { globalCache } from './cache';
 
-// Crawl target websites with their selectors
 const CRAWL_TARGETS = [
   {
     name: 'Google News',
@@ -440,7 +439,6 @@ const CRAWL_TARGETS = [
   },
 ];
 
-// News aggregators and news APIs
 const NEWS_APIS = [
   {
     name: 'NewsAPI',
@@ -481,7 +479,7 @@ const NEWS_APIS = [
 
 export class WebCrawler {
   private cache = new Map<string, NewsArticle[]>();
-  private readonly CACHE_TTL = 3 * 60 * 1000; // 3 minutes
+  private readonly CACHE_TTL = 3 * 60 * 1000;
 
   async crawlNewsAPIs(limit: number = 50): Promise<NewsArticle[]> {
     const cacheKey = `apis:${limit}`;
@@ -489,10 +487,6 @@ export class WebCrawler {
     if (cached) return cached;
 
     const allArticles: NewsArticle[] = [];
-    
-    // In a real implementation, you would call these APIs
-    // For now, we'll return an empty array and rely on RSS
-    // This is a placeholder for API integration
     
     globalCache.set(cacheKey, allArticles, this.CACHE_TTL);
     return allArticles;
@@ -503,7 +497,6 @@ export class WebCrawler {
     const cached = globalCache.get<NewsArticle[]>(cacheKey);
     if (cached) return cached;
 
-    // These use RSSHub or other aggregation services
     const allArticles: NewsArticle[] = [];
     
     globalCache.set(cacheKey, allArticles, this.CACHE_TTL);
@@ -515,8 +508,6 @@ export class WebCrawler {
     const cached = globalCache.get<NewsArticle[]>(cacheKey);
     if (cached) return cached;
 
-    // Wikipedia has a "Current Events" portal that can be parsed
-    // This is a valuable source for breaking news
     const articles: NewsArticle[] = [];
     
     globalCache.set(cacheKey, articles, this.CACHE_TTL);
@@ -528,8 +519,6 @@ export class WebCrawler {
     const cached = globalCache.get<NewsArticle[]>(cacheKey);
     if (cached) return cached;
 
-    // Reddit r/worldnews is a great aggregator
-    // Can use Reddit's JSON API directly
     const articles: NewsArticle[] = [];
     
     globalCache.set(cacheKey, articles, this.CACHE_TTL);
@@ -541,7 +530,6 @@ export class WebCrawler {
     const cached = globalCache.get<NewsArticle[]>(cacheKey);
     if (cached) return cached;
 
-    // Hacker News API for tech news
     const articles: NewsArticle[] = [];
     
     globalCache.set(cacheKey, articles, this.CACHE_TTL);

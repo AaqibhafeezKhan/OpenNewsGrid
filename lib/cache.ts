@@ -2,7 +2,7 @@ import { CacheEntry } from '@/types';
 
 class MemoryCache {
   private cache: Map<string, CacheEntry<unknown>> = new Map();
-  private readonly defaultTTL: number = 5 * 60 * 1000; // 5 minutes
+  private readonly defaultTTL: number = 5 * 60 * 1000;
 
   set<T>(key: string, data: T, ttl: number = this.defaultTTL): void {
     this.cache.set(key, {
@@ -54,7 +54,6 @@ class MemoryCache {
     return this.cache.size;
   }
 
-  // Clean up expired entries periodically
   cleanup(): void {
     const now = Date.now();
     for (const [key, entry] of this.cache.entries()) {
@@ -67,7 +66,6 @@ class MemoryCache {
 
 export const globalCache = new MemoryCache();
 
-// Run cleanup every 10 minutes
 if (typeof globalThis !== 'undefined') {
   setInterval(() => globalCache.cleanup(), 10 * 60 * 1000);
 }

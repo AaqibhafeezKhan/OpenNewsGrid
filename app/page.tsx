@@ -6,10 +6,9 @@ import Link from 'next/link';
 import { TrendingUp, Globe, Clock } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
-export const revalidate = 60; // Revalidate every minute
+export const revalidate = 60;
 
 export default async function HomePage() {
-  // Fetch data in parallel
   const [breakingNews, topStories, worldNews, techNews, businessNews] = await Promise.all([
     getBreakingNews(8),
     getTopStories(undefined, 13),
@@ -23,12 +22,9 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      {/* Breaking News Ticker */}
       <BreakingNews articles={breakingNews} />
 
-      {/* Main Content */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-        {/* Hero Section */}
         {featuredStory && (
           <section className="mb-12">
             <div className="flex items-center gap-2 mb-4">
@@ -40,7 +36,6 @@ export default async function HomePage() {
         )}
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main News Grid */}
           <div className="lg:col-span-2">
             <section className="mb-12">
               <div className="flex items-center justify-between mb-6">
@@ -58,7 +53,6 @@ export default async function HomePage() {
               <NewsGrid stories={mainGridStories} variant="default" columns={2} showFeatured={false} />
             </section>
 
-            {/* Category Sections */}
             <section className="mb-12">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">World News</h2>
@@ -78,9 +72,7 @@ export default async function HomePage() {
             </section>
           </div>
 
-          {/* Sidebar */}
           <aside className="space-y-8">
-            {/* Trending Topics */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow">
               <h3 className="font-bold text-gray-900 dark:text-white mb-4">Trending Topics</h3>
               <div className="flex flex-wrap gap-2">
@@ -104,7 +96,6 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Tech News */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold text-gray-900 dark:text-white">Technology</h3>
@@ -133,7 +124,6 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Business News */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold text-gray-900 dark:text-white">Business</h3>
@@ -162,7 +152,6 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Categories Quick Links */}
             <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-6 text-white">
               <h3 className="font-bold mb-4">Explore Categories</h3>
               <div className="grid grid-cols-2 gap-2">

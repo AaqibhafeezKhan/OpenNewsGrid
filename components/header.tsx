@@ -26,11 +26,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      {/* Top bar */}
       <div className="bg-primary text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-14 items-center justify-between">
-            {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
               <Globe className="h-6 w-6" />
               <span className="font-serif text-xl font-bold tracking-tight">
@@ -38,7 +36,6 @@ export function Header() {
               </span>
             </Link>
 
-            {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-6">
               {navCategories.map((cat) => (
                 <Link
@@ -54,9 +51,7 @@ export function Header() {
               ))}
             </nav>
 
-            {/* Actions */}
             <div className="flex items-center gap-3">
-              {/* Search */}
               <button
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                 className="p-2 rounded-full hover:bg-white/10 transition-colors"
@@ -65,7 +60,6 @@ export function Header() {
                 <Search className="h-5 w-5" />
               </button>
 
-              {/* Theme Toggle */}
               <button
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
                 className="p-2 rounded-full hover:bg-white/10 transition-colors"
@@ -78,7 +72,6 @@ export function Header() {
                 )}
               </button>
 
-              {/* Mobile Menu */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="lg:hidden p-2 rounded-full hover:bg-white/10 transition-colors"
@@ -95,7 +88,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Search Bar */}
       {isSearchOpen && (
         <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-3">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -119,7 +111,6 @@ export function Header() {
         </div>
       )}
 
-      {/* Secondary Nav */}
       <div className="hidden lg:block bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-6 h-10 text-sm">
@@ -142,11 +133,9 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="lg:hidden bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 max-h-[80vh] overflow-y-auto">
           <div className="px-4 py-4 space-y-4">
-            {/* Categories */}
             <div>
               <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
                 Categories
@@ -170,7 +159,6 @@ export function Header() {
               </div>
             </div>
 
-            {/* Regions */}
             <div>
               <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
                 Regions
@@ -189,7 +177,6 @@ export function Header() {
               </div>
             </div>
 
-            {/* Countries */}
             <div>
               <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
                 Popular Countries

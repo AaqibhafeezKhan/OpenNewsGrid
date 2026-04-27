@@ -29,18 +29,13 @@ const rssParser = new Parser({
   },
 });
 
-// Comprehensive Global RSS Feed Database
 export const GLOBAL_RSS_FEEDS: RSSFeed[] = [
-  // === ASIA ===
-  // Japan
   { url: 'https://www.asahi.com/english/rss/', category: 'general', source: { id: 'asahi', name: 'Asahi Shimbun', url: 'https://www.asahi.com', category: 'general', language: 'en', country: 'jp' } },
   { url: 'https://english.kyodonews.net/rss/news.xml', category: 'general', source: { id: 'kyodo', name: 'Kyodo News', url: 'https://english.kyodonews.net', category: 'general', language: 'en', country: 'jp' } },
   { url: 'https://mainichi.jp/english/rss/', category: 'general', source: { id: 'mainichi', name: 'Mainichi Japan', url: 'https://mainichi.jp', category: 'general', language: 'en', country: 'jp' } },
   { url: 'https://www.japantimes.co.jp/feed/', category: 'general', source: { id: 'japan-times', name: 'Japan Times', url: 'https://www.japantimes.co.jp', category: 'general', language: 'en', country: 'jp' } },
   { url: 'https://www.nippon.com/en/rss/', category: 'general', source: { id: 'nippon', name: 'Nippon.com', url: 'https://www.nippon.com', category: 'general', language: 'en', country: 'jp' } },
   { url: 'https://news.yahoo.co.jp/rss/topics/top-picks.xml', category: 'general', source: { id: 'yahoo-jp', name: 'Yahoo Japan News', url: 'https://news.yahoo.co.jp', category: 'general', language: 'ja', country: 'jp' } },
-  
-  // India
   { url: 'https://www.thehindu.com/news/?service=rss', category: 'general', source: { id: 'hindu', name: 'The Hindu', url: 'https://www.thehindu.com', category: 'general', language: 'en', country: 'in' } },
   { url: 'https://timesofindia.indiatimes.com/rssfeeds/1898055.cms', category: 'general', source: { id: 'toi', name: 'Times of India', url: 'https://timesofindia.indiatimes.com', category: 'general', language: 'en', country: 'in' } },
   { url: 'https://www.indiatoday.in/rss', category: 'general', source: { id: 'india-today', name: 'India Today', url: 'https://www.indiatoday.in', category: 'general', language: 'en', country: 'in' } },
@@ -49,14 +44,10 @@ export const GLOBAL_RSS_FEEDS: RSSFeed[] = [
   { url: 'https://www.hindustantimes.com/rss', category: 'general', source: { id: 'ht', name: 'Hindustan Times', url: 'https://www.hindustantimes.com', category: 'general', language: 'en', country: 'in' } },
   { url: 'https://www.business-standard.com/rss/latest.rss', category: 'business', source: { id: 'bs', name: 'Business Standard', url: 'https://www.business-standard.com', category: 'business', language: 'en', country: 'in' } },
   { url: 'https://economictimes.indiatimes.com/rssfeedsdefault.cms', category: 'business', source: { id: 'et', name: 'Economic Times', url: 'https://economictimes.indiatimes.com', category: 'business', language: 'en', country: 'in' } },
-  
-  // China
   { url: 'https://www.scmp.com/rss/91/feed', category: 'general', source: { id: 'scmp', name: 'South China Morning Post', url: 'https://www.scmp.com', category: 'general', language: 'en', country: 'hk' } },
   { url: 'https://www.globaltimes.cn/rss/index.xml', category: 'general', source: { id: 'gt', name: 'Global Times', url: 'https://www.globaltimes.cn', category: 'general', language: 'en', country: 'cn' } },
   { url: 'https://www.chinadaily.com.cn/rss/world_rss.xml', category: 'general', source: { id: 'china-daily', name: 'China Daily', url: 'https://www.chinadaily.com.cn', category: 'general', language: 'en', country: 'cn' } },
   { url: 'https://www.cgtn.com/subscribe/rss', category: 'general', source: { id: 'cgtn', name: 'CGTN', url: 'https://www.cgtn.com', category: 'general', language: 'en', country: 'cn' } },
-  
-  // Southeast Asia
   { url: 'https://www.channelnewsasia.com/rssfeeds/8395986', category: 'general', source: { id: 'cna', name: 'Channel News Asia', url: 'https://www.channelnewsasia.com', category: 'general', language: 'en', country: 'sg' } },
   { url: 'https://www.straitstimes.com/news/singapore/rss.xml', category: 'general', source: { id: 'st', name: 'Straits Times', url: 'https://www.straitstimes.com', category: 'general', language: 'en', country: 'sg' } },
   { url: 'https://www.thejakartapost.com/rss', category: 'general', source: { id: 'jp', name: 'Jakarta Post', url: 'https://www.thejakartapost.com', category: 'general', language: 'en', country: 'id' } },
@@ -69,8 +60,6 @@ export const GLOBAL_RSS_FEEDS: RSSFeed[] = [
   { url: 'https://www.khmertimeskh.com/feed/', category: 'general', source: { id: 'kt', name: 'Khmer Times', url: 'https://www.khmertimeskh.com', category: 'general', language: 'en', country: 'kh' } },
   { url: 'https://laotiantimes.com/feed/', category: 'general', source: { id: 'lt', name: 'Laotian Times', url: 'https://laotiantimes.com', category: 'general', language: 'en', country: 'la' } },
   { url: 'https://myanmar-now.org/en/feed/', category: 'general', source: { id: 'mn', name: 'Myanmar Now', url: 'https://myanmar-now.org', category: 'general', language: 'en', country: 'mm' } },
-  
-  // South Asia
   { url: 'https://www.dawn.com/feeds/home', category: 'general', source: { id: 'dawn', name: 'Dawn', url: 'https://www.dawn.com', category: 'general', language: 'en', country: 'pk' } },
   { url: 'https://tribune.com.pk/feed/', category: 'general', source: { id: 'etribune', name: 'Express Tribune', url: 'https://tribune.com.pk', category: 'general', language: 'en', country: 'pk' } },
   { url: 'https://www.thenews.com.pk/rss', category: 'general', source: { id: 'news-pk', name: 'The News', url: 'https://www.thenews.com.pk', category: 'general', language: 'en', country: 'pk' } },
@@ -81,17 +70,12 @@ export const GLOBAL_RSS_FEEDS: RSSFeed[] = [
   { url: 'https://www.thehimalayan.net/feed/', category: 'general', source: { id: 'th', name: 'The Himalayan', url: 'https://www.thehimalayan.net', category: 'general', language: 'en', country: 'np' } },
   { url: 'https://kuenselonline.com/feed/', category: 'general', source: { id: 'kuensel', name: 'Kuensel', url: 'https://kuenselonline.com', category: 'general', language: 'en', country: 'bt' } },
   { url: 'https://www.maldivesindependent.com/feed/', category: 'general', source: { id: 'mi', name: 'Maldives Independent', url: 'https://www.maldivesindependent.com', category: 'general', language: 'en', country: 'mv' } },
-  
-  // East Asia
   { url: 'http://www.koreaherald.com/rss/05010000.xml', category: 'general', source: { id: 'kh', name: 'Korea Herald', url: 'http://www.koreaherald.com', category: 'general', language: 'en', country: 'kr' } },
   { url: 'http://www.koreatimes.co.kr/www/rss/nation.xml', category: 'general', source: { id: 'ktimes', name: 'Korea Times', url: 'http://www.koreatimes.co.kr', category: 'general', language: 'en', country: 'kr' } },
   { url: 'https://www.khan.co.kr/rss/rssdata/total_news.xml', category: 'general', source: { id: 'khan', name: 'Kyunghyang Shinmun', url: 'https://www.khan.co.kr', category: 'general', language: 'ko', country: 'kr' } },
   { url: 'https://www.taiwannews.com.tw/en/rss', category: 'general', source: { id: 'tn', name: 'Taiwan News', url: 'https://www.taiwannews.com.tw', category: 'general', language: 'en', country: 'tw' } },
   { url: 'https://www.taipeitimes.com/News/rss', category: 'general', source: { id: 'tpt', name: 'Taipei Times', url: 'https://www.taipeitimes.com', category: 'general', language: 'en', country: 'tw' } },
   { url: 'https://www.mongoliaweekly.org/feed/', category: 'general', source: { id: 'mw', name: 'Mongolia Weekly', url: 'https://www.mongoliaweekly.org', category: 'general', language: 'en', country: 'mn' } },
-  
-  // === EUROPE ===
-  // UK & Ireland
   { url: 'http://feeds.bbci.co.uk/news/rss.xml', category: 'general', source: { id: 'bbc', name: 'BBC News', url: 'https://www.bbc.co.uk/news', category: 'general', language: 'en', country: 'gb' } },
   { url: 'https://www.theguardian.com/world/rss', category: 'general', source: { id: 'guardian', name: 'The Guardian', url: 'https://www.theguardian.com', category: 'general', language: 'en', country: 'gb' } },
   { url: 'https://www.independent.co.uk/rss', category: 'general', source: { id: 'independent', name: 'The Independent', url: 'https://www.independent.co.uk', category: 'general', language: 'en', country: 'gb' } },
@@ -100,18 +84,12 @@ export const GLOBAL_RSS_FEEDS: RSSFeed[] = [
   { url: 'https://www.economist.com/latest/rss.xml', category: 'business', source: { id: 'economist', name: 'The Economist', url: 'https://www.economist.com', category: 'business', language: 'en', country: 'gb' } },
   { url: 'https://www.irishtimes.com/rss/news', category: 'general', source: { id: 'it', name: 'Irish Times', url: 'https://www.irishtimes.com', category: 'general', language: 'en', country: 'ie' } },
   { url: 'https://www.independent.ie/rss', category: 'general', source: { id: 'ii', name: 'Irish Independent', url: 'https://www.independent.ie', category: 'general', language: 'en', country: 'ie' } },
-  
-  // France
   { url: 'https://www.france24.com/en/rss', category: 'general', source: { id: 'f24', name: 'France 24', url: 'https://www.france24.com', category: 'general', language: 'en', country: 'fr' } },
   { url: 'https://www.thelocal.fr/feeds/rss.php', category: 'general', source: { id: 'local-fr', name: 'The Local France', url: 'https://www.thelocal.fr', category: 'general', language: 'en', country: 'fr' } },
   { url: 'https://www.connexionfrance.com/rss', category: 'general', source: { id: 'connexion', name: 'Connexion France', url: 'https://www.connexionfrance.com', category: 'general', language: 'en', country: 'fr' } },
-  
-  // Germany
   { url: 'https://www.spiegel.de/international/index.rss', category: 'general', source: { id: 'spiegel', name: 'Der Spiegel', url: 'https://www.spiegel.de', category: 'general', language: 'en', country: 'de' } },
   { url: 'https://rss.dw.com/rdf/rss-en-all', category: 'general', source: { id: 'dw', name: 'Deutsche Welle', url: 'https://www.dw.com', category: 'general', language: 'en', country: 'de' } },
   { url: 'https://www.thelocal.de/feeds/rss.php', category: 'general', source: { id: 'local-de', name: 'The Local Germany', url: 'https://www.thelocal.de', category: 'general', language: 'en', country: 'de' } },
-  
-  // Other Europe
   { url: 'https://www.politico.eu/feed/', category: 'politics', source: { id: 'politico', name: 'Politico EU', url: 'https://www.politico.eu', category: 'politics', language: 'en', country: 'eu' } },
   { url: 'https://www.euronews.com/rss', category: 'general', source: { id: 'euronews', name: 'Euronews', url: 'https://www.euronews.com', category: 'general', language: 'en', country: 'eu' } },
   { url: 'https://www.themoscowtimes.com/rss/news', category: 'general', source: { id: 'moscow-times', name: 'Moscow Times', url: 'https://www.themoscowtimes.com', category: 'general', language: 'en', country: 'ru' } },
@@ -157,9 +135,7 @@ export const GLOBAL_RSS_FEEDS: RSSFeed[] = [
   { url: 'https://news.yale.edu/rss', category: 'science', source: { id: 'yale', name: 'Yale News', url: 'https://news.yale.edu', category: 'science', language: 'en', country: 'us' } },
 ];
 
-// Additional feeds to fetch (Middle East, Africa, Americas)
 export const ADDITIONAL_FEEDS: RSSFeed[] = [
-  // === MIDDLE EAST ===
   { url: 'https://www.aljazeera.com/xml/rss/all.xml', category: 'general', source: { id: 'aj', name: 'Al Jazeera', url: 'https://www.aljazeera.com', category: 'general', language: 'en', country: 'qa' } },
   { url: 'https://www.jordantimes.com/rss', category: 'general', source: { id: 'jtimes', name: 'Jordan Times', url: 'https://www.jordantimes.com', category: 'general', language: 'en', country: 'jo' } },
   { url: 'https://www.dailysabah.com/rss', category: 'general', source: { id: 'sabah', name: 'Daily Sabah', url: 'https://www.dailysabah.com', category: 'general', language: 'en', country: 'tr' } },
@@ -186,8 +162,6 @@ export const ADDITIONAL_FEEDS: RSSFeed[] = [
   { url: 'https://en.rian.ru/rss', category: 'general', source: { id: 'ria', name: 'RIA Novosti', url: 'https://en.rian.ru', category: 'general', language: 'en', country: 'ru' } },
   { url: 'https://sputniknews.com/export/rss2/archive/index.xml', category: 'general', source: { id: 'sputnik', name: 'Sputnik', url: 'https://sputniknews.com', category: 'general', language: 'en', country: 'ru' } },
   { url: 'https://tass.com/rss/v2.xml', category: 'general', source: { id: 'tass', name: 'TASS', url: 'https://tass.com', category: 'general', language: 'en', country: 'ru' } },
-  
-  // === AFRICA ===
   { url: 'https://mg.co.za/feed/', category: 'general', source: { id: 'mg', name: 'Mail & Guardian', url: 'https://mg.co.za', category: 'general', language: 'en', country: 'za' } },
   { url: 'https://www.news24.com/rss', category: 'general', source: { id: 'n24', name: 'News24', url: 'https://www.news24.com', category: 'general', language: 'en', country: 'za' } },
   { url: 'https://www.sowetanlive.co.za/rss', category: 'general', source: { id: 'sowetan', name: 'Sowetan Live', url: 'https://www.sowetanlive.co.za', category: 'general', language: 'en', country: 'za' } },
@@ -255,9 +229,6 @@ export const ADDITIONAL_FEEDS: RSSFeed[] = [
   { url: 'https://face2faceafrica.com/feed/', category: 'general', source: { id: 'f2fa', name: 'Face2Face Africa', url: 'https://face2faceafrica.com', category: 'general', language: 'en', country: 'us' } },
   { url: 'https://www.panapress.com/rss', category: 'general', source: { id: 'pana', name: 'PanaPress', url: 'https://www.panapress.com', category: 'general', language: 'en', country: 'sn' } },
   { url: 'https://www.jeuneafrique.com/rss', category: 'general', source: { id: 'ja', name: 'Jeune Afrique', url: 'https://www.jeuneafrique.com', category: 'general', language: 'fr', country: 'fr' } },
-  
-  // === AMERICAS ===
-  // North America - US
   { url: 'https://rss.nytimes.com/services/xml/rss/nyt/World.xml', category: 'general', source: { id: 'nyt', name: 'New York Times', url: 'https://www.nytimes.com', category: 'general', language: 'en', country: 'us' } },
   { url: 'https://www.washingtonpost.com/world/rss', category: 'general', source: { id: 'wapo', name: 'Washington Post', url: 'https://www.washingtonpost.com', category: 'general', language: 'en', country: 'us' } },
   { url: 'http://rss.cnn.com/rss/edition_world.rss', category: 'general', source: { id: 'cnn', name: 'CNN', url: 'https://www.cnn.com', category: 'general', language: 'en', country: 'us' } },
@@ -283,8 +254,6 @@ export const ADDITIONAL_FEEDS: RSSFeed[] = [
   { url: 'https://www.politico.com/rss/politics08.xml', category: 'politics', source: { id: 'politico', name: 'Politico', url: 'https://www.politico.com', category: 'politics', language: 'en', country: 'us' } },
   { url: 'https://www.axios.com/feeds/feed.rss', category: 'general', source: { id: 'axios', name: 'Axios', url: 'https://www.axios.com', category: 'general', language: 'en', country: 'us' } },
   { url: 'https://www.pbs.org/newshour/feeds/rss/headlines', category: 'general', source: { id: 'pbs', name: 'PBS NewsHour', url: 'https://www.pbs.org/newshour', category: 'general', language: 'en', country: 'us' } },
-  
-  // Canada
   { url: 'https://www.cbc.ca/cmlink/rss-world', category: 'general', source: { id: 'cbc', name: 'CBC News', url: 'https://www.cbc.ca', category: 'general', language: 'en', country: 'ca' } },
   { url: 'https://www.theglobeandmail.com/rss', category: 'general', source: { id: 'globe', name: 'Globe and Mail', url: 'https://www.theglobeandmail.com', category: 'general', language: 'en', country: 'ca' } },
   { url: 'https://nationalpost.com/feed/', category: 'general', source: { id: 'np', name: 'National Post', url: 'https://nationalpost.com', category: 'general', language: 'en', country: 'ca' } },
@@ -293,51 +262,35 @@ export const ADDITIONAL_FEEDS: RSSFeed[] = [
   { url: 'https://www.vancouver sun.com/rss', category: 'general', source: { id: 'vs', name: 'Vancouver Sun', url: 'https://www.vancouversun.com', category: 'general', language: 'en', country: 'ca' } },
   { url: 'https://www.cpac.ca/en/rss', category: 'general', source: { id: 'cpac', name: 'CPAC', url: 'https://www.cpac.ca', category: 'general', language: 'en', country: 'ca' } },
   { url: 'https://www.ipolitics.ca/feed/', category: 'politics', source: { id: 'ipolitics', name: 'iPolitics', url: 'https://www.ipolitics.ca', category: 'politics', language: 'en', country: 'ca' } },
-  
-  // Latin America - Brazil
   { url: 'https://feeds.folha.uol.com.br/emcimadahora/rss091.xml', category: 'general', source: { id: 'folha', name: 'Folha de S.Paulo', url: 'https://www.folha.uol.com.br', category: 'general', language: 'pt', country: 'br' } },
   { url: 'https://g1.globo.com/rss/g1/', category: 'general', source: { id: 'g1', name: 'Globo G1', url: 'https://g1.globo.com', category: 'general', language: 'pt', country: 'br' } },
   { url: 'https://www.brasil247.com/feed/', category: 'general', source: { id: 'b247', name: 'Brasil 247', url: 'https://www.brasil247.com', category: 'general', language: 'pt', country: 'br' } },
   { url: 'https://www.cartacapital.com.br/rss', category: 'general', source: { id: 'cc', name: 'Carta Capital', url: 'https://www.cartacapital.com.br', category: 'general', language: 'pt', country: 'br' } },
   { url: 'https://www.valor.com.br/rss', category: 'business', source: { id: 'valor', name: 'Valor Economico', url: 'https://www.valor.com.br', category: 'business', language: 'pt', country: 'br' } },
-  
-  // Argentina
   { url: 'https://www.clarin.com/rss/lo-ultimo/', category: 'general', source: { id: 'clarin', name: 'Clarin', url: 'https://www.clarin.com', category: 'general', language: 'es', country: 'ar' } },
   { url: 'https://www.lanacion.com.ar/rss/', category: 'general', source: { id: 'lanacion', name: 'La Nacion', url: 'https://www.lanacion.com.ar', category: 'general', language: 'es', country: 'ar' } },
   { url: 'https://www.pagina12.com.ar/rss', category: 'general', source: { id: 'p12', name: 'Pagina 12', url: 'https://www.pagina12.com.ar', category: 'general', language: 'es', country: 'ar' } },
   { url: 'https://www.infobae.com/argentina/rss/', category: 'general', source: { id: 'infobae', name: 'Infobae', url: 'https://www.infobae.com', category: 'general', language: 'es', country: 'ar' } },
   { url: 'https://www.ambito.com/rss', category: 'business', source: { id: 'ambito', name: 'Ambito Financiero', url: 'https://www.ambito.com', category: 'business', language: 'es', country: 'ar' } },
-  
-  // Mexico
   { url: 'https://www.reforma.com/rss/', category: 'general', source: { id: 'reforma', name: 'Reforma', url: 'https://www.reforma.com', category: 'general', language: 'es', country: 'mx' } },
   { url: 'https://www.eluniversal.com.mx/rss', category: 'general', source: { id: 'universal', name: 'El Universal', url: 'https://www.eluniversal.com.mx', category: 'general', language: 'es', country: 'mx' } },
   { url: 'https://www.jornada.com.mx/rss', category: 'general', source: { id: 'jornada', name: 'La Jornada', url: 'https://www.jornada.com.mx', category: 'general', language: 'es', country: 'mx' } },
   { url: 'https://www.milenio.com/rss', category: 'general', source: { id: 'milenio', name: 'Milenio', url: 'https://www.milenio.com', category: 'general', language: 'es', country: 'mx' } },
   { url: 'https://www.elsoldemexico.com.mx/rss', category: 'general', source: { id: 'sdm', name: 'El Sol de Mexico', url: 'https://www.elsoldemexico.com.mx', category: 'general', language: 'es', country: 'mx' } },
-  
-  // Chile
   { url: 'https://www.emol.com/rss', category: 'general', source: { id: 'emol', name: 'El Mercurio', url: 'https://www.emol.com', category: 'general', language: 'es', country: 'cl' } },
   { url: 'https://www.latercera.com/feed/', category: 'general', source: { id: 'tercera', name: 'La Tercera', url: 'https://www.latercera.com', category: 'general', language: 'es', country: 'cl' } },
   { url: 'https://www.lanacion.cl/feed/', category: 'general', source: { id: 'nacioncl', name: 'La Nacion Chile', url: 'https://www.lanacion.cl', category: 'general', language: 'es', country: 'cl' } },
   { url: 'https://www.biobiochile.cl/feed/', category: 'general', source: { id: 'bio', name: 'BioBioChile', url: 'https://www.biobiochile.cl', category: 'general', language: 'es', country: 'cl' } },
-  
-  // Colombia
   { url: 'https://www.eltiempo.com/rss', category: 'general', source: { id: 'eltiempo', name: 'El Tiempo', url: 'https://www.eltiempo.com', category: 'general', language: 'es', country: 'co' } },
   { url: 'https://www.elespectador.com/feed/', category: 'general', source: { id: 'espectador', name: 'El Espectador', url: 'https://www.elespectador.com', category: 'general', language: 'es', country: 'co' } },
   { url: 'https://www.semana.com/feed/', category: 'general', source: { id: 'semana', name: 'Semana', url: 'https://www.semana.com', category: 'general', language: 'es', country: 'co' } },
   { url: 'https://www.portafolio.co/rss', category: 'business', source: { id: 'portafolio', name: 'Portafolio', url: 'https://www.portafolio.co', category: 'business', language: 'es', country: 'co' } },
-  
-  // Peru
   { url: 'https://elcomercio.pe/feed/', category: 'general', source: { id: 'ecomercio', name: 'El Comercio', url: 'https://elcomercio.pe', category: 'general', language: 'es', country: 'pe' } },
   { url: 'https://gestion.pe/feed/', category: 'business', source: { id: 'gestion', name: 'Gestion', url: 'https://gestion.pe', category: 'business', language: 'es', country: 'pe' } },
   { url: 'https://larepublica.pe/feed/', category: 'general', source: { id: 'larepublica', name: 'La Republica', url: 'https://larepublica.pe', category: 'general', language: 'es', country: 'pe' } },
-  
-  // Venezuela
   { url: 'https://www.eluniversal.com/rss', category: 'general', source: { id: 'eu', name: 'El Universal', url: 'https://www.eluniversal.com', category: 'general', language: 'es', country: 've' } },
   { url: 'https://www.elnacional.com/feed/', category: 'general', source: { id: 'elnacional', name: 'El Nacional', url: 'https://www.elnacional.com', category: 'general', language: 'es', country: 've' } },
   { url: 'https://www.lapatilla.com/feed/', category: 'general', source: { id: 'lp', name: 'La Patilla', url: 'https://www.lapatilla.com', category: 'general', language: 'es', country: 've' } },
-  
-  // Other Latin America
   { url: 'https://www.elpais.com.co/rss', category: 'general', source: { id: 'epco', name: 'El Pais Colombia', url: 'https://www.elpais.com.co', category: 'general', language: 'es', country: 'co' } },
   { url: 'https://www.elobservador.com.uy/rss', category: 'general', source: { id: 'eo', name: 'El Observador', url: 'https://www.elobservador.com.uy', category: 'general', language: 'es', country: 'uy' } },
   { url: 'https://www.montevideo.com.uy/rss', category: 'general', source: { id: 'mvd', name: 'Montevideo Portal', url: 'https://www.montevideo.com.uy', category: 'general', language: 'es', country: 'uy' } },
@@ -369,8 +322,6 @@ export const ADDITIONAL_FEEDS: RSSFeed[] = [
   { url: 'https://www.eldeber.com.bo/rss', category: 'general', source: { id: 'edeber', name: 'El Deber', url: 'https://www.eldeber.com.bo', category: 'general', language: 'es', country: 'bo' } },
   { url: 'https://www.lostiempos.com/rss', category: 'general', source: { id: 'lt', name: 'Los Tiempos', url: 'https://www.lostiempos.com', category: 'general', language: 'es', country: 'bo' } },
   { url: 'https://www.paginasiete.bo/rss', category: 'general', source: { id: 'ps', name: 'Pagina Siete', url: 'https://www.paginasiete.bo', category: 'general', language: 'es', country: 'bo' } },
-  
-  // === OCEANIA ===
   { url: 'https://www.abc.net.au/news/feed/2942460/rss.xml', category: 'general', source: { id: 'abc', name: 'ABC News Australia', url: 'https://www.abc.net.au', category: 'general', language: 'en', country: 'au' } },
   { url: 'https://www.smh.com.au/rss/feed.xml', category: 'general', source: { id: 'smh', name: 'Sydney Morning Herald', url: 'https://www.smh.com.au', category: 'general', language: 'en', country: 'au' } },
   { url: 'https://www.theage.com.au/rss', category: 'general', source: { id: 'age', name: 'The Age', url: 'https://www.theage.com.au', category: 'general', language: 'en', country: 'au' } },
@@ -390,8 +341,6 @@ export const ADDITIONAL_FEEDS: RSSFeed[] = [
   { url: 'https://www.radionz.co.nz/rss', category: 'general', source: { id: 'rnzi', name: 'RNZ International', url: 'https://www.radionz.co.nz', category: 'general', language: 'en', country: 'nz' } },
   { url: 'https://www.pireport.org/feed/', category: 'general', source: { id: 'pir', name: 'Pacific Islands Report', url: 'https://www.pireport.org', category: 'general', language: 'en', country: 'gu' } },
   { url: 'https://www.islandsbusiness.com/rss', category: 'business', source: { id: 'ib', name: 'Islands Business', url: 'https://www.islandsbusiness.com', category: 'business', language: 'en', country: 'fj' } },
-  
-  // === TECHNOLOGY ===
   { url: 'https://techcrunch.com/feed/', category: 'technology', source: { id: 'tc', name: 'TechCrunch', url: 'https://techcrunch.com', category: 'technology', language: 'en', country: 'us' } },
   { url: 'https://www.theverge.com/rss/index.xml', category: 'technology', source: { id: 'verge', name: 'The Verge', url: 'https://www.theverge.com', category: 'technology', language: 'en', country: 'us' } },
   { url: 'https://www.wired.com/feed/rss', category: 'technology', source: { id: 'wired', name: 'Wired', url: 'https://www.wired.com', category: 'technology', language: 'en', country: 'us' } },
@@ -412,8 +361,6 @@ export const ADDITIONAL_FEEDS: RSSFeed[] = [
   { url: 'https://www.digitaltrends.com/rss', category: 'technology', source: { id: 'dtrends', name: 'Digital Trends', url: 'https://www.digitaltrends.com', category: 'technology', language: 'en', country: 'us' } },
   { url: 'https://www.pcmag.com/rss', category: 'technology', source: { id: 'pcmag', name: 'PCMag', url: 'https://www.pcmag.com', category: 'technology', language: 'en', country: 'us' } },
   { url: 'https://www.tomshardware.com/rss', category: 'technology', source: { id: 'tom', name: 'Toms Hardware', url: 'https://www.tomshardware.com', category: 'technology', language: 'en', country: 'us' } },
-  
-  // === SCIENCE & ENVIRONMENT ===
   { url: 'https://www.nature.com/nature.rss', category: 'science', source: { id: 'nature', name: 'Nature', url: 'https://www.nature.com', category: 'science', language: 'en', country: 'gb' } },
   { url: 'https://www.science.org/rss', category: 'science', source: { id: 'science', name: 'Science', url: 'https://www.science.org', category: 'science', language: 'en', country: 'us' } },
   { url: 'https://www.newscientist.com/feed/', category: 'science', source: { id: 'ns', name: 'New Scientist', url: 'https://www.newscientist.com', category: 'science', language: 'en', country: 'gb' } },
@@ -425,22 +372,16 @@ export const ADDITIONAL_FEEDS: RSSFeed[] = [
   { url: 'https://www.ecowatch.com/rss', category: 'environment', source: { id: 'eco', name: 'EcoWatch', url: 'https://www.ecowatch.com', category: 'environment', language: 'en', country: 'us' } },
   { url: 'https://ensia.com/feed/', category: 'environment', source: { id: 'ensia', name: 'Ensia', url: 'https://ensia.com', category: 'environment', language: 'en', country: 'us' } },
   { url: 'https://www.yaleclimateconnections.org/feed/', category: 'environment', source: { id: 'ycc', name: 'Yale Climate Connections', url: 'https://www.yaleclimateconnections.org', category: 'environment', language: 'en', country: 'us' } },
-  
-  // === HEALTH ===
   { url: 'https://www.who.int/rss-feeds/news-english.xml', category: 'health', source: { id: 'who', name: 'WHO', url: 'https://www.who.int', category: 'health', language: 'en', country: 'ch' } },
   { url: 'https://www.statnews.com/feed/', category: 'health', source: { id: 'stat', name: 'STAT News', url: 'https://www.statnews.com', category: 'health', language: 'en', country: 'us' } },
   { url: 'https://www.medpagetoday.com/rss', category: 'health', source: { id: 'mp', name: 'MedPage Today', url: 'https://www.medpagetoday.com', category: 'health', language: 'en', country: 'us' } },
   { url: 'https://www.sciencedaily.com/rss', category: 'science', source: { id: 'sd', name: 'ScienceDaily', url: 'https://www.sciencedaily.com', category: 'science', language: 'en', country: 'us' } },
   { url: 'https://www.medicalnewstoday.com/rss', category: 'health', source: { id: 'mnt', name: 'Medical News Today', url: 'https://www.medicalnewstoday.com', category: 'health', language: 'en', country: 'gb' } },
-  
-  // === SPORTS ===
   { url: 'https://www.espn.com/espn/rss/news', category: 'sports', source: { id: 'espn', name: 'ESPN', url: 'https://www.espn.com', category: 'sports', language: 'en', country: 'us' } },
   { url: 'https://www.skysports.com/rss/12040', category: 'sports', source: { id: 'ss', name: 'Sky Sports', url: 'https://www.skysports.com', category: 'sports', language: 'en', country: 'gb' } },
   { url: 'https://www.bbc.co.uk/sport/rss', category: 'sports', source: { id: 'bbcs', name: 'BBC Sport', url: 'https://www.bbc.co.uk/sport', category: 'sports', language: 'en', country: 'gb' } },
   { url: 'https://www.goal.com/en/feeds/news', category: 'sports', source: { id: 'goal', name: 'Goal.com', url: 'https://www.goal.com', category: 'sports', language: 'en', country: 'gb' } },
   { url: 'https://www.transfermarkt.com/rss', category: 'sports', source: { id: 'tm', name: 'Transfermarkt', url: 'https://www.transfermarkt.com', category: 'sports', language: 'en', country: 'de' } },
-  
-  // === INDEPENDENT & ALTERNATIVE ===
   { url: 'https://globalvoices.org/feed/', category: 'general', source: { id: 'gv', name: 'Global Voices', url: 'https://globalvoices.org', category: 'general', language: 'en', country: 'us' } },
   { url: 'https://www.devex.com/rss', category: 'general', source: { id: 'devex', name: 'Devex', url: 'https://www.devex.com', category: 'general', language: 'en', country: 'us' } },
   { url: 'https://www.opendemocracy.net/en/rss', category: 'general', source: { id: 'od', name: 'Open Democracy', url: 'https://www.opendemocracy.net', category: 'general', language: 'en', country: 'gb' } },
@@ -460,12 +401,11 @@ export const ADDITIONAL_FEEDS: RSSFeed[] = [
   { url: 'https://www.imf.org/en/rss', category: 'business', source: { id: 'imf', name: 'IMF', url: 'https://www.imf.org', category: 'business', language: 'en', country: 'us' } },
 ];
 
-// Combine all feeds
 export const ALL_RSS_FEEDS = [...GLOBAL_RSS_FEEDS, ...ADDITIONAL_FEEDS];
 
 export class RSSAggregator {
   private feedCache = new Map<string, NewsArticle[]>();
-  private readonly CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+  private readonly CACHE_TTL = 5 * 60 * 1000;
 
   async fetchFeed(feed: RSSFeed, limit: number = 10): Promise<NewsArticle[]> {
     const cacheKey = `${feed.source.id}:${limit}`;
@@ -498,15 +438,12 @@ export class RSSAggregator {
     if (category && category !== 'general') {
       feeds = feeds.filter(f => f.source.category === category);
     }
-    
-    // Shuffle and limit feeds for diversity
     feeds = feeds
       .sort(() => Math.random() - 0.5)
       .slice(0, maxFeeds);
 
     const allArticles: NewsArticle[] = [];
 
-    // Fetch in batches to avoid overwhelming
     const batchSize = 10;
     for (let i = 0; i < feeds.length; i += batchSize) {
       const batch = feeds.slice(i, i + batchSize);
@@ -521,7 +458,6 @@ export class RSSAggregator {
       });
     }
 
-    // Sort by date and deduplicate
     const unique = allArticles
       .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
       .filter((article, idx, self) => 
@@ -538,7 +474,6 @@ export class RSSAggregator {
     if (cached) return cached;
 
     const feeds = ALL_RSS_FEEDS.filter(f => {
-      // Map countries to regions
       const regionMap: Record<string, string[]> = {
         'asia': ['jp', 'cn', 'in', 'kr', 'id', 'th', 'vn', 'ph', 'my', 'sg', 'bd', 'pk', 'lk', 'np', 'mm', 'mn', 'tw', 'hk', 'kh', 'la', 'bt', 'mv', 'af'],
         'europe': ['gb', 'de', 'fr', 'it', 'es', 'nl', 'be', 'ch', 'at', 'se', 'no', 'dk', 'fi', 'pl', 'cz', 'hu', 'ro', 'bg', 'hr', 'rs', 'ua', 'gr', 'pt', 'ie', 'ru', 'by', 'ee', 'lv', 'lt', 'si', 'ba', 'mk', 'al', 'mt', 'cy', 'is'],
@@ -579,10 +514,8 @@ export class RSSAggregator {
     const title = item.title.trim();
     const description = item.contentSnippet || item.summary || item.content || '';
     
-    // Extract image
     let imageUrl = this.extractImageFromRSS(item);
     if (!imageUrl) {
-      // Fallback images by category
       const fallbacks: Record<string, string> = {
         'general': 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
         'technology': 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80',
@@ -595,7 +528,6 @@ export class RSSAggregator {
       imageUrl = fallbacks[source.category] || fallbacks['general'];
     }
 
-    // Parse date
     let publishedAt = item.isoDate || item.pubDate;
     if (!publishedAt) {
       publishedAt = new Date().toISOString();
@@ -626,19 +558,15 @@ export class RSSAggregator {
   }
 
   private extractImageFromRSS(item: Parser.Item): string | null {
-    // Try media:content
     const mediaContent = (item as { 'media:content'?: { $: { url: string }; url?: string } })['media:content'];
     if (mediaContent?.$?.url) return mediaContent.$.url;
-    // Try media:thumbnail
     const mediaThumbnail = (item as any)['media:thumbnail'];
     if (mediaThumbnail?.$?.url) return mediaThumbnail.$.url;
 
-    // Try enclosure
     if (item.enclosure?.url && item.enclosure.type?.startsWith('image/')) {
       return item.enclosure.url;
     }
 
-    // Extract from content
     const content = (item as { 'content:encoded'?: string })['content:encoded'] || item.content || '';
     const imgMatch = content.match(/<img[^>]+src="([^"]+)"/);
     if (imgMatch) return imgMatch[1];
