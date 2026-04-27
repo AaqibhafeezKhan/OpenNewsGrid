@@ -9,10 +9,11 @@ import {
 import { globalCache, generateCacheKey } from "./cache";
 
 const rssParser = new Parser({
-  timeout: 15000,
+  timeout: 8000,
+  maxRedirects: 3,
   headers: {
     "User-Agent":
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
     Accept: "application/rss+xml, application/xml, text/xml, */*",
   },
   customFields: {
@@ -4482,7 +4483,7 @@ export class RSSAggregator {
 
     const allArticles: NewsArticle[] = [];
 
-    const batchSize = 10;
+    const batchSize = 5;
     for (let i = 0; i < feeds.length; i += batchSize) {
       const batch = feeds.slice(i, i + batchSize);
       const results = await Promise.allSettled(
@@ -4494,6 +4495,10 @@ export class RSSAggregator {
           allArticles.push(...result.value);
         }
       });
+
+      if (i + batchSize < feeds.length) {
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // increased delay to 1 second
+      }
     }
 
     const unique = allArticles

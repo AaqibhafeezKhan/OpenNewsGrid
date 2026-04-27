@@ -60,6 +60,22 @@ const CACHE_TTL = {
   search: 10 * 60 * 1000,
 };
 
+const FETCH_TIMEOUT = 10000;
+
+async function fetchWithTimeout(url: string, options: RequestInit = {}, timeout = FETCH_TIMEOUT): Promise<Response> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+  
+  try {
+    const response = await fetch(url, { ...options, signal: controller.signal });
+    clearTimeout(timeoutId);
+    return response;
+  } catch (error) {
+    clearTimeout(timeoutId);
+    throw error;
+  }
+}
+
 class NewsAggregator {
   private similarityThreshold = 0.6;
 
@@ -97,7 +113,7 @@ class NewsAggregator {
       if (filters.sortBy) params.set("sortBy", filters.sortBy);
 
       const endpoint = filters.query ? "everything" : "top-headlines";
-      const response = await fetch(
+      const response = await fetchWithTimeout(
         `https://newsapi.org/v2/${endpoint}?${params.toString()}`,
         { next: { revalidate: 300 } },
       );
@@ -149,7 +165,7 @@ class NewsAggregator {
       if (filters.country) params.set("country", filters.country);
 
       const endpoint = filters.query ? "search" : "top-headlines";
-      const response = await fetch(
+      const response = await fetchWithTimeout(
         `https://gnews.io/api/v4/${endpoint}?${params.toString()}`,
         { next: { revalidate: 300 } },
       );
