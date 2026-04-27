@@ -1,4 +1,4 @@
-import { CacheEntry } from '@/types';
+import { CacheEntry } from "@/types";
 
 class MemoryCache {
   private cache: Map<string, CacheEntry<unknown>> = new Map();
@@ -66,14 +66,17 @@ class MemoryCache {
 
 export const globalCache = new MemoryCache();
 
-if (typeof globalThis !== 'undefined') {
+if (typeof globalThis !== "undefined") {
   setInterval(() => globalCache.cleanup(), 10 * 60 * 1000);
 }
 
-export function generateCacheKey(prefix: string, params: Record<string, unknown>): string {
+export function generateCacheKey(
+  prefix: string,
+  params: Record<string, unknown>,
+): string {
   const sortedParams = Object.entries(params)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([k, v]) => `${k}=${JSON.stringify(v)}`)
-    .join('&');
+    .join("&");
   return `${prefix}:${sortedParams}`;
 }

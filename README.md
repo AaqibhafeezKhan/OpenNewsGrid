@@ -5,6 +5,7 @@ A comprehensive, real-time global news aggregation platform built with Next.js 1
 ## Features
 
 ### Core Capabilities
+
 - **Real-time News Aggregation**: Fetches live news from 300+ global RSS feeds
 - **Smart Deduplication**: Merges duplicate stories from multiple sources
 - **Multi-Source Coverage**: NewsAPI, GNews, and 300+ RSS feeds
@@ -15,6 +16,7 @@ A comprehensive, real-time global news aggregation platform built with Next.js 1
 - **Responsive Design**: Mobile-first design optimized for all devices
 
 ### News Sources
+
 - **Asia**: 80+ sources (Japan, India, China, Southeast Asia, South Asia)
 - **Europe**: 60+ sources (UK, Germany, France, Nordics, Eastern Europe)
 - **Africa**: 50+ sources (Nigeria, South Africa, Kenya, North Africa, West Africa)
@@ -23,6 +25,7 @@ A comprehensive, real-time global news aggregation platform built with Next.js 1
 - **Oceania**: 15+ sources (Australia, New Zealand, Pacific Islands)
 
 ### Technical Stack
+
 - **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript 5.7
 - **Styling**: Tailwind CSS 4.0
@@ -105,7 +108,9 @@ npm start
 ## News Aggregation Architecture
 
 ### RSS Feed Aggregation
+
 The app uses `rss-aggregator.ts` which contains 300+ manually curated RSS feeds from:
+
 - Major international news agencies (Reuters, AP, AFP)
 - Regional newspapers and broadcasters
 - Independent journalism outlets
@@ -113,19 +118,24 @@ The app uses `rss-aggregator.ts` which contains 300+ manually curated RSS feeds 
 - Technology and business publications
 
 ### API Integration
+
 Falls back to News APIs when RSS feeds are insufficient:
+
 - NewsAPI.org
 - GNews.io
 - Currents API
 - MediaStack
 
 ### Caching Strategy
+
 - **In-Memory Cache**: 3-5 minute TTL for RSS feeds
 - **Next.js ISR**: Static page revalidation
 - **CDN Caching**: Edge caching via Vercel
 
 ### Deduplication Logic
+
 Articles are deduplicated using:
+
 1. Title similarity (Jaccard index)
 2. URL comparison
 3. Publication timestamp
@@ -134,7 +144,9 @@ Articles are deduplicated using:
 ## API Routes
 
 ### `/api/news`
+
 Query parameters:
+
 - `action`: `breaking`, `top`, `search`, `category`
 - `category`: Category slug
 - `q`: Search query
@@ -144,6 +156,7 @@ Query parameters:
 - `language`: Language code
 
 Example:
+
 ```
 GET /api/news?action=top&category=technology&limit=20
 GET /api/news?action=search&q=climate&country=us
@@ -152,6 +165,7 @@ GET /api/news?action=search&q=climate&country=us
 ## Customization
 
 ### Adding RSS Feeds
+
 Edit `lib/rss-aggregator.ts` and add to `GLOBAL_RSS_FEEDS`:
 
 ```typescript
@@ -169,6 +183,7 @@ Edit `lib/rss-aggregator.ts` and add to `GLOBAL_RSS_FEEDS`:
 ```
 
 ### Adding Categories
+
 Edit `lib/constants.ts` and add to `CATEGORIES`:
 
 ```typescript
@@ -182,6 +197,7 @@ Edit `lib/constants.ts` and add to `CATEGORIES`:
 ```
 
 ### Adding Countries
+
 Edit `lib/constants.ts` and add to `COUNTRIES`:
 
 ```typescript
@@ -196,13 +212,16 @@ Edit `lib/constants.ts` and add to `COUNTRIES`:
 ## Deployment
 
 ### Vercel (Recommended)
+
 ```bash
 npm i -g vercel
 vercel
 ```
 
 ### Environment Variables on Vercel
+
 Set in Vercel dashboard:
+
 - `NEWSAPI_KEY`
 - `GNEWS_API_KEY`
 - Any other API keys

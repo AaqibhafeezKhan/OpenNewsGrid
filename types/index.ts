@@ -74,7 +74,7 @@ export interface NewsFilters {
   source?: string;
   from?: string;
   to?: string;
-  sortBy?: 'publishedAt' | 'relevance';
+  sortBy?: "publishedAt" | "relevance";
 }
 
 export interface CacheEntry<T> {

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { AlertCircle, ChevronRight } from 'lucide-react';
-import { NewsArticle } from '@/types';
-import { formatTimeAgo } from '@/lib/utils';
+import Link from "next/link";
+import { AlertCircle, ChevronRight } from "lucide-react";
+import { NewsArticle } from "@/types";
+import { formatTimeAgo } from "@/lib/utils";
 
 interface BreakingNewsProps {
   articles: NewsArticle[];

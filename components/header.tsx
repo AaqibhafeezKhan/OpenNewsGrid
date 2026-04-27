@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Search, Menu, X, Globe, Sun, Moon } from 'lucide-react';
-import { useTheme } from './theme-provider';
-import { cn } from '@/lib/utils';
-import { CATEGORIES, REGIONS, COUNTRIES } from '@/lib/constants';
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Search, Menu, X, Globe, Sun, Moon } from "lucide-react";
+import { useTheme } from "./theme-provider";
+import { cn } from "@/lib/utils";
+import { CATEGORIES, REGIONS, COUNTRIES } from "@/lib/constants";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const pathname = usePathname();
   const { theme, setTheme, resolvedTheme } = useTheme();
 
@@ -43,7 +43,7 @@ export function Header() {
                   href={`/${cat.slug}`}
                   className={cn(
                     "text-sm font-medium transition-colors hover:text-accent-light",
-                    pathname === `/${cat.slug}` && "text-accent-light"
+                    pathname === `/${cat.slug}` && "text-accent-light",
                   )}
                 >
                   {cat.name}
@@ -61,11 +61,13 @@ export function Header() {
               </button>
 
               <button
-                onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+                onClick={() =>
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                }
                 className="p-2 rounded-full hover:bg-white/10 transition-colors"
                 aria-label="Toggle theme"
               >
-                {resolvedTheme === 'dark' ? (
+                {resolvedTheme === "dark" ? (
                   <Sun className="h-5 w-5" />
                 ) : (
                   <Moon className="h-5 w-5" />
@@ -114,10 +116,16 @@ export function Header() {
       <div className="hidden lg:block bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-6 h-10 text-sm">
-            <Link href="/region" className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white font-medium">
+            <Link
+              href="/region"
+              className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white font-medium"
+            >
               Regions
             </Link>
-            <Link href="/region?filter=country" className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white">
+            <Link
+              href="/region?filter=country"
+              className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white"
+            >
               Countries
             </Link>
             {REGIONS.slice(0, 4).map((region) => (
@@ -149,7 +157,7 @@ export function Header() {
                       "px-3 py-2 rounded-lg text-sm font-medium transition-colors",
                       pathname === `/${cat.slug}`
                         ? "bg-primary text-white"
-                        : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700",
                     )}
                     onClick={() => setIsMenuOpen(false)}
                   >

@@ -1,12 +1,25 @@
-'use client';
+"use client";
 
-import { useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArticleSkeleton } from '@/components/skeletons';
-import { ArrowLeft, ExternalLink, Share2, Clock, Calendar, Globe, Bookmark } from 'lucide-react';
-import { formatDate, formatTimeAgo, estimateReadTime, getFlagEmoji } from '@/lib/utils';
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { ArticleSkeleton } from "@/components/skeletons";
+import {
+  ArrowLeft,
+  ExternalLink,
+  Share2,
+  Clock,
+  Calendar,
+  Globe,
+  Bookmark,
+} from "lucide-react";
+import {
+  formatDate,
+  formatTimeAgo,
+  estimateReadTime,
+  getFlagEmoji,
+} from "@/lib/utils";
 
 interface ArticleData {
   title: string;
@@ -27,15 +40,15 @@ interface ArticleData {
 
 function ArticleContent() {
   const searchParams = useSearchParams();
-  const articleUrl = searchParams.get('url');
-  
+  const articleUrl = searchParams.get("url");
+
   const [article, setArticle] = useState<ArticleData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!articleUrl) {
-      setError('No article URL provided');
+      setError("No article URL provided");
       setIsLoading(false);
       return;
     }
@@ -46,19 +59,20 @@ function ArticleContent() {
       const decodedUrl = decodeURIComponent(articleUrl);
       // Mock article data - replace with actual API call
       setArticle({
-        title: 'Article Title',
-        description: 'Article description...',
+        title: "Article Title",
+        description: "Article description...",
         url: decodedUrl,
-        imageUrl: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80',
-        source: { name: 'Source Name', url: '#' },
+        imageUrl:
+          "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&q=80",
+        source: { name: "Source Name", url: "#" },
         publishedAt: new Date().toISOString(),
-        category: 'general',
-        country: 'us',
-        language: 'en',
+        category: "general",
+        country: "us",
+        language: "en",
       });
       setIsLoading(false);
     } catch (err) {
-      setError('Failed to load article');
+      setError("Failed to load article");
       setIsLoading(false);
     }
   }, [articleUrl]);
@@ -70,9 +84,9 @@ function ArticleContent() {
   if (error || !article) {
     return (
       <div className="max-w-4xl mx-auto py-16 text-center">
-        <p className="text-red-500 mb-4">{error || 'Article not found'}</p>
-        <Link 
-          href="/" 
+        <p className="text-red-500 mb-4">{error || "Article not found"}</p>
+        <Link
+          href="/"
           className="inline-flex items-center gap-2 text-primary hover:underline"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -82,13 +96,15 @@ function ArticleContent() {
     );
   }
 
-  const readTime = estimateReadTime(article.description + (article.content || ''));
+  const readTime = estimateReadTime(
+    article.description + (article.content || ""),
+  );
 
   return (
     <article className="max-w-4xl mx-auto">
       {/* Back Link */}
-      <Link 
-        href="/" 
+      <Link
+        href="/"
         className="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-primary transition-colors mb-6"
       >
         <ArrowLeft className="h-4 w-4" />
@@ -174,7 +190,7 @@ function ArticleContent() {
         <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-6 font-medium">
           {article.description}
         </p>
-        
+
         {article.content ? (
           <div className="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap">
             {article.content}
@@ -182,7 +198,8 @@ function ArticleContent() {
         ) : (
           <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 text-center">
             <p className="text-gray-600 dark:text-gray-400 mb-4">
-              This is a preview of the article. Click the button above to read the full story on the publisher&apos;s website.
+              This is a preview of the article. Click the button above to read
+              the full story on the publisher&apos;s website.
             </p>
             <a
               href={article.url}
@@ -200,10 +217,10 @@ function ArticleContent() {
       {/* Source Attribution */}
       <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
         <p className="text-sm text-gray-500 dark:text-gray-400">
-          Originally published by{' '}
-          <a 
-            href={article.source.url} 
-            target="_blank" 
+          Originally published by{" "}
+          <a
+            href={article.source.url}
+            target="_blank"
             rel="noopener noreferrer"
             className="text-primary hover:underline"
           >

@@ -1,8 +1,15 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Globe, Twitter, Facebook, Instagram, Youtube, Mail } from 'lucide-react';
-import { CATEGORIES, REGIONS, COUNTRIES } from '@/lib/constants';
+import Link from "next/link";
+import {
+  Globe,
+  Twitter,
+  Facebook,
+  Instagram,
+  Youtube,
+  Mail,
+} from "lucide-react";
+import { CATEGORIES, REGIONS, COUNTRIES } from "@/lib/constants";
 
 export function Footer() {
   const popularCountries = COUNTRIES.slice(0, 8);
@@ -18,20 +25,32 @@ export function Footer() {
               <span className="font-serif text-2xl font-bold">Global News</span>
             </Link>
             <p className="text-gray-400 text-sm mb-6">
-              Your trusted source for real-time news from thousands of global sources. 
-              Breaking stories from every corner of the world.
+              Your trusted source for real-time news from thousands of global
+              sources. Breaking stories from every corner of the world.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors"
+              >
                 <Youtube className="h-5 w-5" />
               </a>
             </div>
@@ -87,9 +106,12 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            
+
             <h3 className="font-semibold text-lg mb-4">Contact</h3>
-            <a href="mailto:contact@globalnews.com" className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2">
+            <a
+              href="mailto:contact@globalnews.com"
+              className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
+            >
               <Mail className="h-4 w-4" />
               contact@globalnews.com
             </a>
@@ -100,19 +122,32 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Global News Daily. All rights reserved.
+              © {new Date().getFullYear()} Global News Daily. All rights
+              reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <Link href="/legacy" className="text-gray-500 hover:text-white transition-colors">
+              <Link
+                href="/legacy"
+                className="text-gray-500 hover:text-white transition-colors"
+              >
                 Legacy Version
               </Link>
-              <Link href="#" className="text-gray-500 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-gray-500 hover:text-white transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-gray-500 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-gray-500 hover:text-white transition-colors"
+              >
                 Terms of Service
               </Link>
-              <Link href="#" className="text-gray-500 hover:text-white transition-colors">
+              <Link
+                href="#"
+                className="text-gray-500 hover:text-white transition-colors"
+              >
                 Cookie Settings
               </Link>
             </div>

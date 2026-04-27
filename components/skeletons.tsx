@@ -1,5 +1,9 @@
-export function NewsCardSkeleton({ variant = 'default' }: { variant?: 'default' | 'horizontal' | 'compact' | 'featured' }) {
-  if (variant === 'featured') {
+export function NewsCardSkeleton({
+  variant = "default",
+}: {
+  variant?: "default" | "horizontal" | "compact" | "featured";
+}) {
+  if (variant === "featured") {
     return (
       <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
         <div className="grid md:grid-cols-2 gap-0">
@@ -21,7 +25,7 @@ export function NewsCardSkeleton({ variant = 'default' }: { variant?: 'default' 
     );
   }
 
-  if (variant === 'horizontal') {
+  if (variant === "horizontal") {
     return (
       <div className="flex gap-4 bg-white dark:bg-gray-800 rounded-lg p-4 shadow">
         <div className="w-32 h-24 md:w-40 md:h-28 shrink-0 skeleton rounded-lg" />
@@ -38,7 +42,7 @@ export function NewsCardSkeleton({ variant = 'default' }: { variant?: 'default' 
     );
   }
 
-  if (variant === 'compact') {
+  if (variant === "compact") {
     return (
       <div className="flex items-start gap-3 py-3 border-b border-gray-100 dark:border-gray-700">
         <div className="w-16 h-16 shrink-0 skeleton rounded-lg" />

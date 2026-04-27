@@ -1,47 +1,58 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { Clock, ExternalLink, Share2 } from 'lucide-react';
-import { NewsArticle, AggregatedStory } from '@/types';
-import { formatTimeAgo, estimateReadTime, truncateText } from '@/lib/utils';
-import { getFlagEmoji } from '@/lib/utils';
+import Link from "next/link";
+import Image from "next/image";
+import { Clock, ExternalLink, Share2 } from "lucide-react";
+import { NewsArticle, AggregatedStory } from "@/types";
+import { formatTimeAgo, estimateReadTime, truncateText } from "@/lib/utils";
+import { getFlagEmoji } from "@/lib/utils";
 
 interface NewsCardProps {
   article?: NewsArticle;
   story?: AggregatedStory;
-  variant?: 'default' | 'featured' | 'compact' | 'horizontal';
+  variant?: "default" | "featured" | "compact" | "horizontal";
 }
 
-export function NewsCard({ article, story, variant = 'default' }: NewsCardProps) {
-  const data = story || (article ? {
-    id: article.id,
-    headline: article.title,
-    summary: article.description,
-    imageUrl: article.imageUrl,
-    sources: [article.source],
-    primaryArticle: article,
-    relatedArticles: [],
-    category: article.category,
-    countries: [article.country],
-    languages: [article.language],
-    publishedAt: article.publishedAt,
-    keywords: article.keywords || [],
-    readTime: estimateReadTime(article.description),
-  } as AggregatedStory : null);
+export function NewsCard({
+  article,
+  story,
+  variant = "default",
+}: NewsCardProps) {
+  const data =
+    story ||
+    (article
+      ? ({
+          id: article.id,
+          headline: article.title,
+          summary: article.description,
+          imageUrl: article.imageUrl,
+          sources: [article.source],
+          primaryArticle: article,
+          relatedArticles: [],
+          category: article.category,
+          countries: [article.country],
+          languages: [article.language],
+          publishedAt: article.publishedAt,
+          keywords: article.keywords || [],
+          readTime: estimateReadTime(article.description),
+        } as AggregatedStory)
+      : null);
 
   if (!data) return null;
 
   const readTime = data.readTime || estimateReadTime(data.summary);
   const hasMultipleSources = data.sources.length > 1;
-  const sourceLabel = hasMultipleSources 
-    ? `${data.sources.length} sources` 
+  const sourceLabel = hasMultipleSources
+    ? `${data.sources.length} sources`
     : data.sources[0]?.name;
 
-  if (variant === 'featured') {
+  if (variant === "featured") {
     return (
       <article className="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-        <Link href={`/article/${encodeURIComponent(data.primaryArticle.url)}`} className="block">
+        <Link
+          href={`/article/${encodeURIComponent(data.primaryArticle.url)}`}
+          className="block"
+        >
           <div className="grid md:grid-cols-2 gap-0">
             <div className="relative h-64 md:h-full min-h-[300px] overflow-hidden">
               <Image
@@ -90,10 +101,13 @@ export function NewsCard({ article, story, variant = 'default' }: NewsCardProps)
     );
   }
 
-  if (variant === 'horizontal') {
+  if (variant === "horizontal") {
     return (
       <article className="group flex gap-4 bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition-all duration-300">
-        <Link href={`/article/${encodeURIComponent(data.primaryArticle.url)}`} className="flex gap-4 flex-1 p-4">
+        <Link
+          href={`/article/${encodeURIComponent(data.primaryArticle.url)}`}
+          className="flex gap-4 flex-1 p-4"
+        >
           <div className="relative w-32 h-24 md:w-40 md:h-28 shrink-0 rounded-lg overflow-hidden">
             <Image
               src={data.imageUrl}
@@ -126,10 +140,13 @@ export function NewsCard({ article, story, variant = 'default' }: NewsCardProps)
     );
   }
 
-  if (variant === 'compact') {
+  if (variant === "compact") {
     return (
       <article className="group">
-        <Link href={`/article/${encodeURIComponent(data.primaryArticle.url)}`} className="flex items-start gap-3 py-3 border-b border-gray-100 dark:border-gray-700 last:border-0">
+        <Link
+          href={`/article/${encodeURIComponent(data.primaryArticle.url)}`}
+          className="flex items-start gap-3 py-3 border-b border-gray-100 dark:border-gray-700 last:border-0"
+        >
           <div className="relative w-16 h-16 shrink-0 rounded-lg overflow-hidden">
             <Image
               src={data.imageUrl}
@@ -157,7 +174,10 @@ export function NewsCard({ article, story, variant = 'default' }: NewsCardProps)
   // Default card
   return (
     <article className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow hover:shadow-xl transition-all duration-300 news-card">
-      <Link href={`/article/${encodeURIComponent(data.primaryArticle.url)}`} className="block">
+      <Link
+        href={`/article/${encodeURIComponent(data.primaryArticle.url)}`}
+        className="block"
+      >
         <div className="relative h-48 overflow-hidden image-zoom">
           <Image
             src={data.imageUrl}
@@ -197,8 +217,14 @@ export function NewsCard({ article, story, variant = 'default' }: NewsCardProps)
               </span>
             </div>
             {data.countries.length > 0 && (
-              <span className="text-base" title={`Countries: ${data.countries.join(', ')}`}>
-                {data.countries.slice(0, 2).map(c => getFlagEmoji(c)).join(' ')}
+              <span
+                className="text-base"
+                title={`Countries: ${data.countries.join(", ")}`}
+              >
+                {data.countries
+                  .slice(0, 2)
+                  .map((c) => getFlagEmoji(c))
+                  .join(" ")}
               </span>
             )}
           </div>

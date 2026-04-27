@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { NewsCard } from './news-card';
-import { NewsCardSkeleton } from './skeletons';
-import { NewsArticle, AggregatedStory } from '@/types';
-import { Loader2 } from 'lucide-react';
+import { useState } from "react";
+import { NewsCard } from "./news-card";
+import { NewsCardSkeleton } from "./skeletons";
+import { NewsArticle, AggregatedStory } from "@/types";
+import { Loader2 } from "lucide-react";
 
 interface NewsGridProps {
   articles?: NewsArticle[];
@@ -12,7 +12,7 @@ interface NewsGridProps {
   isLoading?: boolean;
   hasMore?: boolean;
   onLoadMore?: () => void;
-  variant?: 'default' | 'compact' | 'horizontal';
+  variant?: "default" | "compact" | "horizontal";
   columns?: 1 | 2 | 3 | 4;
   showFeatured?: boolean;
 }
@@ -23,27 +23,33 @@ export function NewsGrid({
   isLoading = false,
   hasMore = false,
   onLoadMore,
-  variant = 'default',
+  variant = "default",
   columns = 3,
   showFeatured = true,
 }: NewsGridProps) {
   const [loadingMore, setLoadingMore] = useState(false);
 
-  const items = stories || articles?.map(a => ({
-    id: a.id,
-    headline: a.title,
-    summary: a.description,
-    imageUrl: a.imageUrl,
-    sources: [a.source],
-    primaryArticle: a,
-    relatedArticles: [],
-    category: a.category,
-    countries: [a.country],
-    languages: [a.language],
-    publishedAt: a.publishedAt,
-    keywords: a.keywords || [],
-    readTime: 3,
-  } as AggregatedStory)) || [];
+  const items =
+    stories ||
+    articles?.map(
+      (a) =>
+        ({
+          id: a.id,
+          headline: a.title,
+          summary: a.description,
+          imageUrl: a.imageUrl,
+          sources: [a.source],
+          primaryArticle: a,
+          relatedArticles: [],
+          category: a.category,
+          countries: [a.country],
+          languages: [a.language],
+          publishedAt: a.publishedAt,
+          keywords: a.keywords || [],
+          readTime: 3,
+        }) as AggregatedStory,
+    ) ||
+    [];
 
   const handleLoadMore = async () => {
     if (!onLoadMore || loadingMore) return;
@@ -54,11 +60,16 @@ export function NewsGrid({
 
   const getGridClasses = () => {
     switch (columns) {
-      case 1: return 'grid-cols-1';
-      case 2: return 'grid-cols-1 md:grid-cols-2';
-      case 3: return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
-      case 4: return 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
-      default: return 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
+      case 1:
+        return "grid-cols-1";
+      case 2:
+        return "grid-cols-1 md:grid-cols-2";
+      case 3:
+        return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+      case 4:
+        return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
+      default:
+        return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
     }
   };
 
@@ -98,13 +109,13 @@ export function NewsGrid({
       )}
 
       {/* Grid */}
-      {variant === 'horizontal' ? (
+      {variant === "horizontal" ? (
         <div className="space-y-4">
           {gridItems.map((item) => (
             <NewsCard key={item.id} story={item} variant="horizontal" />
           ))}
         </div>
-      ) : variant === 'compact' ? (
+      ) : variant === "compact" ? (
         <div className="space-y-2">
           {gridItems.map((item) => (
             <NewsCard key={item.id} story={item} variant="compact" />
@@ -132,7 +143,7 @@ export function NewsGrid({
                 Loading...
               </>
             ) : (
-              'Load More News'
+              "Load More News"
             )}
           </button>
         </div>
